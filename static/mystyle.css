@@ -1,12 +1,13 @@
 *{
+  font-size: 12px;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
-html,body {-webkit-user-select:none;user-select:none;}
 html,body{
-  font-family: "PingFang SC","Microsoft Yahei",Tahoma,Simsun,sans-serif;
+  font-family: "Microsoft Yahei";
   min-height: 100%;
   background: #0e131a;
+  -webkit-user-select:none;user-select:none;
 }

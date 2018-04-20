@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { debounce } from '@/utils/debunce';
 import echarts from 'echarts';
 require('echarts/theme/macarons');
 
@@ -10,109 +11,106 @@ export default {
   name: 'fld',
   data () {
     return {
+      chart: null,
       eOptions: {
+        backgroundColor: 'transparent',
         tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
+          trigger: 'axis'
         },
         grid: {
-          left: '2%',
-          bottom: '2%',
-          containLabel: true
+          left: '10%',
+          bottom: '15%',
+          backgroundColor: 'rgba(0,0,0,0)'
         },
         xAxis: [
           {
             type: 'category',
-            axisTick: {
-              alignWithLabel: true
-            },
-            axisLine: {
-              lineStyle: {
-                color: '#f0f0f0'
-              }
-            },
-            data: ['新注册用户组','流失用户组','未激活用户组']
+            data: ['新注册用户组','流失用户组','未激活用户组'],
+            axisLabel: {
+              // color: 'rgba(47,69,84,0)'
+            }
           }
         ],
         yAxis: [
           {
             type: 'value',
             name: '万元',
-            position: 'left',
+            interval: 50,
+            axisLabel: {
+              color: '#2d343d',
+              formatter: '{value}'
+            },
             axisLine: {
               lineStyle: {
-                color: '#f0f0f0'
+                color: '#2d343d'
               }
             },
-            axisLabel: {
-              formatter: '{value} 万元'
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              lineStyle: {
+                color: '#2d343d'
+              }
             }
           },
           {
             type: 'value',
-            name: '%',
-            axisPointer: {
-              show: true,
-              type: 'line'
-            },
+            name: '工时',
             min: 0,
             max: 8,
             position: 'right',
+            axisLabel: {
+              color: '#2d343d',
+              formatter: '{value}'
+            },
             axisLine: {
               lineStyle: {
-                color: '#2d343e'
+                color: '#2d343d'
               }
             },
-            axisLabel: {
-              formatter: '{value} h'
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
             }
           }
         ],
         series: [
           {
             name: '万元',
-            type: 'line',
-            smooth: false,
-            data: [3456, 7263, 4732]
-          },
-          {
-            name: '金额',
             type: 'bar',
             barWidth: '30%',
-            label: {
+            itemStyle: {
               normal: {
-                show: true,
-                position: 'top'
+                color: params => {
+                  const colorList = ['#f8ba4d', '#4be2ab', '#ff7575'];
+                  return colorList[params.dataIndex];
+                }
               }
             },
-            data: [
-              {
-                value: 3456,
-                itemStyle: {
-                  normal: {
-                    color: '#f9b74c'
-                  }
-                }
+            data: [200, 210, 220]
+          },
+          {
+            name: '工时',
+            type: 'line',
+            yAxisIndex: 0,
+            itemStyle: {normal: {color: '#f0f0f0'}},
+            data: [200, 210, 220]
+          },{
+            type: 'line',
+            yAxisIndex: 1,
+            markLine: {
+              lineStyle: {
+                color: '#f00',
+                width: 2,
+                type: 'dashed'
               },
-              {
-                value: 7263,
-                itemStyle: {
-                  normal: {
-                    color: '#3cd59f'
-                  }
-                }
-              },
-              {
-                value: 4732,
-                itemStyle: {
-                  normal: {
-                    color: '#ff7070'
-                  }
-                }
-              }
-            ]
+              data: [
+                {yAxis: 5, name: '平均值'}
+              ]
+            }
           }
         ]
       }
@@ -120,6 +118,20 @@ export default {
   },
   mounted () {
     this.initBarChart();
+    this.__resizeHanlder = debounce(() => {
+      if (this.chart) {
+        this.chart.resize();
+      }
+    }, 100);
+    window.addEventListener('resize', this.__resizeHanlder);
+  },
+  beforeDestroy () {
+    if (!this.chart) {
+      return;
+    }
+    window.removeEventListener('resize', this.__resizeHanlder);
+    this.chart.dispose();
+    this.chart = null;
   },
   methods: {
     initBarChart () {
