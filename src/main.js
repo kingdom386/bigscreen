@@ -3,7 +3,6 @@ import 'normalize.css/normalize.css';
 import App from './App';
 import router from './router';
 import ElementUI from 'element-ui';
-// import { debounce } from '@/utils';
 import locale from 'element-ui/lib/locale/lang/en';
 import 'element-ui/lib/theme-chalk/index.css';
 import '../static/mystyle.css';

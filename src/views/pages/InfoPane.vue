@@ -11,19 +11,16 @@
           <div class="info_progress">
             <div class="info_progress_up p_warning" :style="{width: 30 +'%'}"><span class="percentage">30%</span></div>
           </div>
-          <!-- <el-progress :text-inside="true" :stroke-width="10" color="#f9b74c" :percentage="50"></el-progress> -->
         </div>
         <div class="info_group bg_success">
           <div class="info_progress">
             <div class="info_progress_up p_success" :style="{width: 89 +'%'}"><span class="percentage">89%</span></div>
           </div>
-          <!-- <el-progress :text-inside="true" :stroke-width="10" color="#3cd59f" :percentage="100"></el-progress> -->
         </div>
         <div class="info_group bg_danger">
           <div class="info_progress">
             <div class="info_progress_up p_danger" :style="{width: 55 +'%'}"><span class="percentage">55%</span></div>
           </div>
-          <!-- <el-progress :text-inside="true" :stroke-width="10" color="#ff7070" :percentage="2"></el-progress> -->
         </div>
       </div>
       <!--/ info_echarts -->
@@ -63,6 +60,7 @@ export default {
 
 <style lang="less" scoped>
   .info_container{
+    height: 545px;
     .dark_gray{
       background: #191f28;
     }

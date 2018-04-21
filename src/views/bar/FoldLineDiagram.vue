@@ -27,7 +27,7 @@ export default {
             type: 'category',
             data: ['新注册用户组','流失用户组','未激活用户组'],
             axisLabel: {
-              // color: 'rgba(47,69,84,0)'
+              color: 'rgba(47,69,84,0)'
             }
           }
         ],
@@ -35,7 +35,7 @@ export default {
           {
             type: 'value',
             name: '万元',
-            interval: 50,
+            // interval: 50,
             axisLabel: {
               color: '#2d343d',
               formatter: '{value}'
@@ -52,6 +52,9 @@ export default {
               lineStyle: {
                 color: '#2d343d'
               }
+            },
+            splitArea: {
+              show: false
             }
           },
           {
@@ -74,6 +77,9 @@ export default {
             },
             splitLine: {
               show: false
+            },
+            splitArea: {
+              show: false
             }
           }
         ],
@@ -84,6 +90,7 @@ export default {
             barWidth: '30%',
             itemStyle: {
               normal: {
+                barBorderRadius: [5,5,0,0],
                 color: params => {
                   const colorList = ['#f8ba4d', '#4be2ab', '#ff7575'];
                   return colorList[params.dataIndex];
@@ -96,7 +103,11 @@ export default {
             name: '工时',
             type: 'line',
             yAxisIndex: 0,
-            itemStyle: {normal: {color: '#f0f0f0'}},
+            itemStyle: {
+              normal: {
+                color: '#f0f0f0'
+              }
+            },
             data: [200, 210, 220]
           },{
             type: 'line',

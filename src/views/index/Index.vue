@@ -3,7 +3,7 @@
     <el-container>
       <el-main>
         <!-- el-row -->
-        <el-row>
+        <el-row :gutter="20">
           <!-- el-col -->
           <el-col :span="8">
             <info-pane></info-pane>
@@ -11,6 +11,7 @@
           <!--/ el-col -->
           <!-- el-col -->
           <el-col :span="8">
+            <group-info></group-info>
           </el-col>
           <!--/ el-col -->
           <!-- el-col -->
@@ -27,12 +28,14 @@
 
 <script>
 import { fetchList } from '@/api/api';
-import InfoPane from '@/views/infopane/InfoPane';
+import InfoPane from '@/views/pages/InfoPane';
+import GroupInfo from '@/views/pages/GroupInfo';
 
 export default {
   name: 'Index',
   components: {
-    InfoPane
+    InfoPane,
+    GroupInfo
   },
   data () {
     return {
