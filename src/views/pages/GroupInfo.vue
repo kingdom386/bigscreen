@@ -39,7 +39,40 @@
           <h3>实时冠军</h3>
           <div class="team_avatar">
             <span class="avatar_box">
-              <img :src="userAvatar" alt="用户头像">
+              <img :src="userAvatar1" alt="用户头像">
+            </span>
+          </div>
+          <!--/ team_avatar -->
+          <div class="team_base_info">
+            <h4>姓名：{{userName}}</h4>
+            <p>组别：{{teamName}}</p>
+          </div>
+          <!--/ team_base_info -->
+          <div class="team_day_target">
+            <el-row>
+              <el-col :span="12">
+                <img :src="topImg" alt="当日达成率icon">
+                <p class="team_day_perc">当日达成率</p>
+                <p class="team_day_count">{{tCount}}%</p>
+              </el-col>
+              <el-col :span="12">
+                <img :src="topImg" alt="当日达成率icon">
+                <p class="team_day_perc">当日达成值</p>
+                <p class="team_day_count">{{tValue}}万</p>
+              </el-col>
+            </el-row>
+          </div>
+          <!-- /team_day_target -->
+        </div>
+        <!--/ group_info_box -->
+      </swiper-slide>
+      <!--/ swiper-slide -->
+      <swiper-slide>
+        <div class="group_info_box">
+          <h3>实时冠军</h3>
+          <div class="team_avatar">
+            <span class="avatar_box">
+              <img :src="userAvatar2" alt="用户头像">
             </span>
           </div>
           <!--/ team_avatar -->
@@ -72,8 +105,8 @@
 </template>
 
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 export default {
   name: 'groupswiper',
@@ -84,33 +117,28 @@ export default {
   data () {
     return {
       userAvatar: require('../../assets/avatar5.png'),
+      userAvatar1: require('../../assets/avatar1.png'),
+      userAvatar2: require('../../assets/avatar2.png'),
+
       topImg: require('../../assets/top.png'),
-      tCount: 123,
-      tValue: 170,
+      tCount: 123, // 当日达成率
+      tValue: 170, // 当日达成值
       userName: '李世民',
       teamName: '第一组',
       swiperOption: {
-        autoplay: 5000,
         loop: true,
-        autoplayDisableOnInteraction: false,
-        setWrapperSize: true,
-        paginationClickable: true
-      },
-      swiperSlides: [1, 2]
+        effect: 'slide',
+        speed: 300,
+        autoplay: true,
+        delay: 2000,
+        autoplayDisableOnInteraction: false
+      }
     };
   },
   computed: {
     swiper () {
       return this.$refs.swiperOption.swiper;
     }
-  },
-  mounted () {
-    // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-    console.log('this is current swiper instance object', this.swiper);
-    this.$nextTick(() => {
-      let swiperSlides = this.swiperSlides;
-      if (swiperSlides.length < 1) swiperSlides.push(swiperSlides.length + 1);
-    });
   }
 };
 </script>
@@ -120,6 +148,7 @@ export default {
     width:auto;
     height: 545px;
     background: #191f28;
+    overflow: hidden;
     .group_info_box{
       h3{
         padding-left: 20px;
