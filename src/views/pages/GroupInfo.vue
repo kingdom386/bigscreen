@@ -129,9 +129,10 @@ export default {
         loop: true,
         effect: 'slide',
         speed: 300,
-        autoplay: true,
-        delay: 2000,
-        autoplayDisableOnInteraction: false
+        autoplay: {
+          disableOnInteraction: false
+        },
+        delay: 2000
       }
     };
   },

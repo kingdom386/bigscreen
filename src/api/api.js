@@ -1,14 +1,25 @@
 import request from '@/utils/request';
 
 /**
+ * 请求用户token
+ */
+
+export function fetchToken () {
+  return request({
+    url: '/test/getToken',
+    method: 'post'
+  });
+};
+
+/**
  * @param params 请求的参数
  * 请求列表数据
  */
 
-export function fetchList (params) {
+export function fetchAchievementRate (params) {
   return request({
-    url: '/active/rule/list',
+    url: '/realtimedata/getTodayAchievementRate',
     method: 'post',
     params
   });
-}
+};

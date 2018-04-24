@@ -65,11 +65,12 @@ export default {
         loop: true,
         effect: 'slide',
         speed: 500,
-        autoplay: true,
         delay: 500,
-        autoplayDisableOnInteraction: false,
-        height: 75,
-        slidesPerView: 1,
+        autoplay: {
+          disableOnInteraction: false
+        },
+        height: 150,
+        slidesPerView: 2,
         spaceBetween: 0
       }
     };
@@ -91,13 +92,18 @@ export default {
       height: 75px;
       .team_list_item{
         display: table-cell;
-        text-align: center;
         vertical-align: middle;
         font-size: 16px;
         line-height: 1;
         color: #75787e;
-        &:first-child{
-          width: 60px;
+        &:first-child,&:nth-child(3),&:nth-child(4),&:nth-child(6){
+          width: 70px;
+        }
+        &:nth-child(2),&:nth-child(5),&:nth-child(7){
+          width: 68px;
+        }
+        &:nth-child(8){
+          width: 72px;
         }
         .team_user_avatar{
           padding: 4px;

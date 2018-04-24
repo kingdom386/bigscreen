@@ -11,6 +11,117 @@
         </template>
       </div>
     </div>
+    <!-- /rank_month_caption -->
+    <div class="rank_box">
+      <swiper :options="swiperOption" ref="swiperOption">
+        <swiper-slide>
+          <div class="rank_month_list">
+            <div class="rank_month_list_row">
+              <div class="rank_month_list_cell">
+                <div class="user_avatar">
+                  <img src="../../assets/avatar1.png" alt="用户头像">
+                </div>
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                <img src="../../assets/Champion.png" alt="用户头像">
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                小王
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                100万
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                1000万
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                10%
+              </div>
+              <!-- /rank_month_list_cell -->
+            </div>
+            <!-- /rank_month_list_row -->
+          </div>
+          <!-- /rank_month_list -->
+        </swiper-slide>
+        <!-- /swiper-slide -->
+        <swiper-slide>
+          <div class="rank_month_list">
+            <div class="rank_month_list_row">
+              <div class="rank_month_list_cell">
+                <div class="user_avatar">
+                  <img src="../../assets/avatar1.png" alt="用户头像">
+                </div>
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                <img src="../../assets/Runnerup.png" alt="用户头像">
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                小王
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                100万
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                1000万
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                10%
+              </div>
+              <!-- /rank_month_list_cell -->
+            </div>
+            <!-- /rank_month_list_row -->
+          </div>
+          <!-- /rank_month_list -->
+        </swiper-slide>
+        <!-- /swiper-slide -->
+        <swiper-slide>
+          <div class="rank_month_list">
+            <div class="rank_month_list_row">
+              <div class="rank_month_list_cell">
+                <div class="user_avatar">
+                  <img src="../../assets/avatar1.png" alt="用户头像">
+                </div>
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                <img src="../../assets/seasonArmy.png" alt="用户头像">
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                小王
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                100万
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                1000万
+              </div>
+              <!-- /rank_month_list_cell -->
+              <div class="rank_month_list_cell">
+                10%
+              </div>
+              <!-- /rank_month_list_cell -->
+            </div>
+            <!-- /rank_month_list_row -->
+          </div>
+          <!-- /rank_month_list -->
+        </swiper-slide>
+        <!-- /swiper-slide -->
+      </swiper>
+      <!-- /swiper -->
+    </div>
   </div>
   <!-- /rank_month_pane -->
 </template>
@@ -33,8 +144,26 @@ export default {
   },
   data () {
     return {
-      rank_caption: ['排名头像', '排名', '姓名', '达成额', '目标额', '达成率']
+      rank_caption: ['排名头像', '排名', '姓名', '达成额', '目标额', '达成率'],
+      swiperOption: {
+        direction: 'vertical',
+        loop: true,
+        effect: 'slide',
+        speed: 300,
+        autoplay: {
+          disableOnInteraction: false
+        },
+        delay: 2000,
+        height: 289,
+        slidesPerView: 3,
+        spaceBetween: 0
+      }
     };
+  },
+  computed: {
+    swiper () {
+      return this.$refs.swiperOption.swiper;
+    }
   }
 };
 </script>
@@ -61,6 +190,86 @@ export default {
           font-size: 18px;
           color: #f0f0f0;
           line-height: 1;
+          &:first-child{
+            width: 95px;
+          }
+          &:nth-child(2){
+            width: 82px;
+          }
+          &:nth-child(3){
+            width: 70px;
+          }
+          &:nth-child(4){
+            width: 76px;
+          }
+          &:nth-child(5){
+            width: 78px;
+          }
+          &:nth-child(6){
+            width: 102px;
+          }
+        }
+      }
+    }
+    .rank_box{
+      width: 100%;
+      height: 289px;
+      overflow: hidden;
+      .rank_month_list{
+        padding: 10px 0 0;
+        display: table;
+        width: 100%;
+        height: auto;
+        .rank_month_list_row{
+          display: table-row;
+          width: 100%;
+          .rank_month_list_cell {
+            display: table-cell;
+            width:  auto;
+            height: 92px;
+            font-size: 16px;
+            color: #75787e;
+            line-height: 92px;
+            vertical-align: middle;
+            .user_avatar{
+              padding: 4px;
+              width: 74px;
+              height: 74px;
+              border-radius: 100%;
+              -webkit-border-radius:100%;
+              -moz-border-radius: 100%;
+              background: #282d35;
+              overflow: hidden;
+              &>img{
+              border-radius: 100%;
+              -webkit-border-radius:100%;
+              -moz-border-radius: 100%;
+              }
+            }
+            img{
+              display: block;
+              max-width: 100%;
+              height: auto;
+            }
+            &:first-child{
+              width: 95px;
+            }
+            &:nth-child(2){
+              width: 82px;
+            }
+            &:nth-child(3){
+              width: 70px;
+            }
+            &:nth-child(4){
+              width: 76px;
+            }
+            &:nth-child(5){
+              width: 78px;
+            }
+            &:nth-child(6){
+              width: 102px;
+            }
+          }
         }
       }
     }

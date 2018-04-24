@@ -7,21 +7,26 @@
       </div>
       <!-- info_caption -->
       <div class="info_echarts">
-        <div class="info_group bg_warning">
-          <div class="info_progress">
-            <div class="info_progress_up p_warning" :style="{width: 30 +'%'}"><span class="percentage">30%</span></div>
+        <template v-for="(ifd, index) in infoData">
+          <div class="info_group bg_warning" :key="index" v-if="ifd.name === '新注册'">
+            <div class="info_progress">
+              <div class="info_progress_up p_warning" :style="{width: 30 +'%'}"><span class="percentage">30%</span></div>
+            </div>
           </div>
-        </div>
-        <div class="info_group bg_success">
-          <div class="info_progress">
-            <div class="info_progress_up p_success" :style="{width: 89 +'%'}"><span class="percentage">89%</span></div>
+          <!-- /info_group -->
+          <div class="info_group bg_success" :key="index" v-else-if="ifd.name === '流失'">
+            <div class="info_progress">
+              <div class="info_progress_up p_success" :style="{width: 89 +'%'}"><span class="percentage">89%</span></div>
+            </div>
           </div>
-        </div>
-        <div class="info_group bg_danger">
-          <div class="info_progress">
-            <div class="info_progress_up p_danger" :style="{width: 55 +'%'}"><span class="percentage">55%</span></div>
+          <!-- /info_group -->
+          <div class="info_group bg_danger" :key="index" v-else-if="ifd.name === '未激活'">
+            <div class="info_progress">
+              <div class="info_progress_up p_danger" :style="{width: 55 +'%'}"><span class="percentage">55%</span></div>
+            </div>
           </div>
-        </div>
+          <!-- /info_group -->
+        </template>
       </div>
       <!--/ info_echarts -->
     </div>
@@ -45,6 +50,12 @@ import Fld from '@/views/bar/FoldLineDiagram';
 
 export default {
   name: 'InfoPame',
+  props: {
+    infoData: {
+      type: Array,
+      default: null
+    }
+  },
   components: {
     Fld
   },

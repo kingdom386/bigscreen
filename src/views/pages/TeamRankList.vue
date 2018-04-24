@@ -70,8 +70,14 @@ export default {
           display: table-cell;
           font-size: 18px;
           color: #f0f0f0;
-          &:first-child{
-            width: 60px;
+          &:first-child,&:nth-child(3),&:nth-child(4),&:nth-child(6){
+            width: 70px;
+          }
+          &:nth-child(2),&:nth-child(5),&:nth-child(7){
+            width: 68px;
+          }
+          &:nth-child(8){
+            width: 72px;
           }
         }
       }
