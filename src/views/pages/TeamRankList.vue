@@ -14,21 +14,22 @@
     </div>
     <!--/ team_table_caption -->
     <div class="team_table_pane">
-      <team-group-swiper></team-group-swiper>
+      <team-group-swiper :tgsData="zuDataOne"></team-group-swiper>
     </div>
     <!--/ team_table_pane -->
     <div class="team_table_pane">
-      <team-group-swiper></team-group-swiper>
+      <team-group-swiper :tgsData="zuDataSecond"></team-group-swiper>
     </div>
     <!--/ team_table_pane -->
     <div class="team_table_pane">
-      <team-group-swiper></team-group-swiper>
+      <team-group-swiper :tgsData="zuDataThird"></team-group-swiper>
     </div>
     <!--/ team_table_pane -->
   </div>
 </template>
 
 <script>
+import { fetchToken, fetchRealtimeChartByDay } from '@/api/api';
 import TeamGroupSwiper from '@/views/pages/TeamGroupSwiper';
 
 export default {
@@ -38,8 +39,39 @@ export default {
   },
   data () {
     return {
-      caption_data: ['头像', '排名', '姓名', '组别', '达成额', '目标额', '达成率']
+      caption_data: ['头像', '排名', '姓名', '组别', '达成额', '目标额', '达成率'],
+      zuDataOne: [],
+      zuDataSecond: [],
+      zuDataThird: []
     };
+  },
+  mounted () {
+    const zidOne = {zuid: 1};
+    const zidSecond = {zuid: 2};
+    const zidThird = {zuid: 3};
+    fetchToken().then(res => {
+      this.$store.commit('SET_USER_TOKEN', res);
+      fetchRealtimeChartByDay(zidOne).then(resOne => {
+        this.zuDataOne = this.handlerArray(resOne);
+      });
+      fetchRealtimeChartByDay(zidSecond).then(resSecond => {
+        this.zuDataSecond = this.handlerArray(resSecond);
+      });
+      fetchRealtimeChartByDay(zidThird).then(resThird => {
+        this.zuDataThird = this.handlerArray(resThird);
+      });
+    });
+  },
+  methods: {
+    handlerArray (params) {
+      let tempAry = [];
+      params.forEach((element, i) => {
+        if (i < 3) {
+          tempAry.push(element);
+        }
+      });
+      return tempAry;
+    }
   }
 };
 </script>

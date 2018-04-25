@@ -1,12 +1,12 @@
 <template>
   <swiper :options="teamOptions" ref="teamOptions">
-    <template v-for="(tid, index) in team_list_data">
+    <template v-for="(tgs, index) in tgsData">
       <swiper-slide :key="index">
         <div class="team_table_list">
           <div class="team_table_list_row">
             <div class="team_list_item">
               <div class="team_user_avatar">
-                <img :src="tid.userAvatar" alt="用户头像">
+                <img :src="userAvatar" alt="用户头像">
               </div>
             </div>
             <!-- /team_list_item -->
@@ -15,23 +15,23 @@
             </div>
             <!-- /team_list_item -->
             <div class="team_list_item">
-              {{tid.userName}}
+              {{tgs.USERNAME}}
             </div>
             <!-- /team_list_item -->
             <div class="team_list_item">
-              {{tid.userGroup}}
+              {{tgs.ZUNAME}}
             </div>
             <!-- /team_list_item -->
             <div class="team_list_item">
-              {{tid.reachAmount}}万
+              {{tgs.DCTZE}}万
             </div>
             <!-- /team_list_item -->
             <div class="team_list_item">
-              {{tid.targetAmout}}万
+              {{tgs.MBTZE}}万
             </div>
             <!-- /team_list_item -->
             <div class="team_list_item">
-              {{tid.targetRate}}
+              {{tgs.MBDCL}}
             </div>
             <!-- /team_list_item -->
           </div>
@@ -49,17 +49,21 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 export default {
   name: 'groupswiper',
+  props: {
+    tgsData: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    }
+  },
   components: {
     swiper,
     swiperSlide
   },
   data () {
     return {
-      team_list_data: [
-        {userAvatar: require('../../assets/avatar1.png'), userName: '老王', userGroup: '一组', reachAmount: 980, targetAmout: 1000, targetRate: '98%'},
-        {userAvatar: require('../../assets/avatar2.png'), userName: '小王', userGroup: '一组', reachAmount: 340, targetAmout: 400, targetRate: '85%'},
-        {userAvatar: require('../../assets/avatar3.png'), userName: '小刘', userGroup: '一组', reachAmount: 260, targetAmout: 600, targetRate: '35%'}
-      ],
+      userAvatar: require('../../assets/avatar5.png'),
       teamOptions: {
         direction: 'vertical',
         loop: true,

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import qs from 'qs';
+// import Qs from 'qs';
 import Cookies from 'js-cookie';
 import { Message } from 'element-ui';
 import store from '@/store';
@@ -11,12 +11,7 @@ const timeout = 5000;
 const instance = axios.create({
   baseURL,
   timeout,
-  paramsSerializer: params => {
-    return qs.stringify(params);
-  },
-  transformRequest: params => {
-    return qs.stringify(params);
-  }
+  headers: {'Content-Type': 'application/json;charset=utf-8'}
 });
 
 // 请求拦截器
@@ -25,6 +20,7 @@ instance.interceptors.request.use(config => {
   if (!store.getters.token) {
     config.headers['Authorization'] = Cookies.get('Token');
   }
+  config.data = JSON.stringify(config.data);
   return config;
 }, error => {
   Promise.reject(error);

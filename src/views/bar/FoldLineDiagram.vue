@@ -9,6 +9,14 @@ require('echarts/theme/macarons');
 
 export default {
   name: 'fld',
+  props: {
+    fDatas: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    }
+  },
   data () {
     return {
       chart: null,
@@ -22,20 +30,17 @@ export default {
           bottom: '15%',
           backgroundColor: 'rgba(0,0,0,0)'
         },
-        xAxis: [
-          {
-            type: 'category',
-            data: ['新注册用户组','流失用户组','未激活用户组'],
-            axisLabel: {
-              color: 'rgba(47,69,84,0)'
-            }
+        xAxis: {
+          show: true,
+          data: ['qqqq', 'qwee', 'wewewe'],
+          axisLabel: {
+            color: '#f0f0f0'
           }
-        ],
+        },
         yAxis: [
           {
-            type: 'value',
             name: '万元',
-            // interval: 50,
+            type: 'value',
             axisLabel: {
               color: '#2d343d',
               formatter: '{value}'
@@ -58,10 +63,8 @@ export default {
             }
           },
           {
+            name: '100%',
             type: 'value',
-            name: '工时',
-            min: 0,
-            max: 8,
             position: 'right',
             axisLabel: {
               color: '#2d343d',
@@ -85,9 +88,15 @@ export default {
         ],
         series: [
           {
-            name: '万元',
+            name: '实时业绩额',
             type: 'bar',
             barWidth: '30%',
+            label: {
+              normal: {
+                show: true,
+                position: 'top'
+              }
+            },
             itemStyle: {
               normal: {
                 barBorderRadius: [5,5,0,0],
@@ -97,31 +106,19 @@ export default {
                 }
               }
             },
-            data: [200, 210, 220]
+            data: ''
           },
           {
-            name: '工时',
+            name: '目标额比值',
             type: 'line',
-            yAxisIndex: 0,
+            smooth: false,
+            yAxisIndex: 1,
             itemStyle: {
               normal: {
                 color: '#f0f0f0'
               }
             },
-            data: [200, 210, 220]
-          },{
-            type: 'line',
-            yAxisIndex: 1,
-            markLine: {
-              lineStyle: {
-                color: '#f00',
-                width: 2,
-                type: 'dashed'
-              },
-              data: [
-                {yAxis: 5, name: '平均值'}
-              ]
-            }
+            data: ''
           }
         ]
       }
@@ -148,6 +145,16 @@ export default {
     initBarChart () {
       this.chart = echarts.init(this.$el, 'macarons');
       this.chart.setOption(this.eOptions);
+    }
+  },
+  watch: {
+    'fDatas': {
+      handler (val,oldval) {
+        this.eOptions.xAxis.data = val[0].lg;
+        this.eOptions.series[0].data = val[1].fd;
+        this.eOptions.series[1].data = val[2].fdr;
+        this.chart.setOption(this.eOptions);
+      }
     }
   }
 };

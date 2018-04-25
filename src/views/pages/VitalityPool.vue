@@ -4,7 +4,7 @@
       <div class="pool_animation">
         <div class="wave_up waving" :style="{top: thisWavePerc + 'px'}"></div>
         <div class="wave_down" :style="{top: thisWavePerc + 'px'}"></div>
-        <span class="wave_percent">{{targetPc}}%</span>
+        <span class="wave_percent">{{targetPerc}}%</span>
       </div>
     </div>
     <!-- /pool_canvas -->
@@ -22,18 +22,21 @@ export default {
       default: ''
     },
     targetPerc: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   data () {
     return {
-      targetPc: this.targetPerc,
       thisWavePerc: 500
     };
   },
-  mounted () {
-    this.thisWavePerc = 200 - (parseInt(this.targetPc) / 100 * 200);
+  watch: {
+    'targetPerc': {
+      handler (val, oldval) {
+        this.thisWavePerc = 200 - (parseFloat(this.targetPerc) / 100 * 200);
+      }
+    }
   }
 };
 </script>

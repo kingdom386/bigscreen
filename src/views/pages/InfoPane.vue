@@ -3,26 +3,26 @@
     <div class="dark_gray info_box">
       <div class="info_caption">
         <h2>{{titleOne}}</h2>
-        <span class="info_subTitle">投资额：{{targetVal}}万</span>
+        <span class="info_subTitle">投资额：{{infoData.MBTZE}}万</span>
       </div>
       <!-- info_caption -->
       <div class="info_echarts">
-        <template v-for="(ifd, index) in infoData">
+        <template v-for="(ifd, index) in infoData.seriesList">
           <div class="info_group bg_warning" :key="index" v-if="ifd.name === '新注册'">
             <div class="info_progress">
-              <div class="info_progress_up p_warning" :style="{width: 30 +'%'}"><span class="percentage">30%</span></div>
+              <div class="info_progress_up p_warning" :style="{width: ifd.percent +'%'}"><span class="percentage">{{ifd.percent}}%</span></div>
             </div>
           </div>
           <!-- /info_group -->
           <div class="info_group bg_success" :key="index" v-else-if="ifd.name === '流失'">
             <div class="info_progress">
-              <div class="info_progress_up p_success" :style="{width: 89 +'%'}"><span class="percentage">89%</span></div>
+              <div class="info_progress_up p_success" :style="{width: ifd.percent +'%'}"><span class="percentage">{{ifd.percent}}%</span></div>
             </div>
           </div>
           <!-- /info_group -->
           <div class="info_group bg_danger" :key="index" v-else-if="ifd.name === '未激活'">
             <div class="info_progress">
-              <div class="info_progress_up p_danger" :style="{width: 55 +'%'}"><span class="percentage">55%</span></div>
+              <div class="info_progress_up p_danger" :style="{width: ifd.percent +'%'}"><span class="percentage">{{ifd.percent}}%</span></div>
             </div>
           </div>
           <!-- /info_group -->
@@ -37,7 +37,7 @@
       </div>
       <!-- info_caption -->
       <div class="info_echarts" style="height: 170px;">
-        <fld></fld>
+        <fld :fDatas="fDatas"></fld>
       </div>
       <!--/ info_echarts -->
     </div>
@@ -52,8 +52,14 @@ export default {
   name: 'InfoPame',
   props: {
     infoData: {
-      type: Array,
+      type: Object,
       default: null
+    },
+    AchieveData: {
+      type: Array,
+      default: () => {
+        return [];
+      }
     }
   },
   components: {
@@ -63,8 +69,27 @@ export default {
     return {
       titleOne: '今日实时达成率',
       titleTwo: '今日各组达成情况',
-      targetVal: 1000
+      fDatas: []
     };
+  },
+  watch: {
+    'AchieveData': {
+      handler (val, oldval) {
+        const flegend = [];
+        const fData = [];
+        const fDataRate = [];
+        val.forEach(element => {
+          if (element.name === '新注册' || element.name === '流失' || element.name === '未激活') {
+            flegend.push(element.name);
+            fData.push(element.money);
+            fDataRate.push(element.percent);
+          }
+        });
+        this.fDatas.push({lg: flegend});
+        this.fDatas.push({fd: fData});
+        this.fDatas.push({fdr: fDataRate});
+      }
+    }
   }
 };
 </script>
@@ -103,11 +128,10 @@ export default {
     }
     .info_echarts{
       .info_group{
-        padding-top: 15px;
+        padding: 15px 0 0 100px;
         margin-bottom: 26px;
         vertical-align: middle;
         position: relative;
-        padding-left: 80px;
         height: 40px;
         .info_progress{
           position: relative;
@@ -136,7 +160,7 @@ export default {
             -moz-border-radius: 10px;
             .percentage{
               float: right;
-              margin-right: 18px;
+              margin-right: 20px;
               display: block;
               width: 24px;
               height: 10px;
@@ -176,19 +200,19 @@ export default {
           }
         }
         &.bg_warning::before {
-         content: '1组';
+         content: '新注册';
           background: linear-gradient(to bottom ,#f8ba4d,#f89b3b);
           background: -webkit-linear-gradient(to bottom ,#f8ba4d,#f89b3b);
           background: -moz-linear-gradient(to bottom ,#f8ba4d,#f89b3b);
         }
         &.bg_success::before {
-          content: '2组';
+          content: '流失';
           background: linear-gradient(to bottom ,#4be2ab,#2bc48c);
           background: -webkit-linear-gradient(to bottom ,#4be2ab,#2bc48c);
           background: -moz-linear-gradient(to bottom ,#4be2ab,#2bc48c);
         }
         &.bg_danger::before{
-          content: '3组';
+          content: '未激活';
           background: linear-gradient(to bottom ,#ff7575,#ff5756);
           background: -webkit-linear-gradient(to bottom ,#ff7575,#ff5756);
           background: -moz-linear-gradient(to bottom ,#ff7575 ,#ff5756);
@@ -202,7 +226,7 @@ export default {
           top: 0;
           z-index: 1;
           display: block;
-          width: 60px;
+          width: 70px;
           height: 40px;
           font-size: 18px;
           text-align: center;

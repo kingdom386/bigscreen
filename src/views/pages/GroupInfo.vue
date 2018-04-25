@@ -1,106 +1,50 @@
 <template>
   <div class="group_info">
     <swiper :options="swiperOption" ref="swiperOption">
-      <swiper-slide>
-        <div class="group_info_box">
-          <h3>实时冠军</h3>
-          <div class="team_avatar">
-            <span class="avatar_box">
-              <img :src="userAvatar" alt="用户头像">
-            </span>
+      <template v-for="(gi, index) in giData">
+        <swiper-slide :key="index" >
+          <div class="group_info_box">
+            <h3>{{gi.gName}}</h3>
+            <div class="team_avatar">
+              <span class="avatar_box">
+                <img :src="userAvatar" alt="用户头像">
+              </span>
+            </div>
+            <!--/ team_avatar -->
+            <div class="team_base_info">
+              <h4>姓名：{{gi.userName}}</h4>
+              <p>组别：{{gi.userGroup}}</p>
+            </div>
+            <!--/ team_base_info -->
+            <div class="team_day_target">
+              <el-row v-if="gi.type === 2">
+                <el-col :span="12">
+                  <img :src="topImg" alt="当日达成率icon">
+                  <p class="team_day_perc">{{gi.userTargetRate}}</p>
+                  <p class="team_day_count">{{gi.userTargetRateValue}}%</p>
+                </el-col>
+                <el-col :span="12">
+                  <img :src="topImg" alt="当日达成率icon">
+                  <p class="team_day_perc">{{gi.userTargetName}}</p>
+                  <p class="team_day_count">{{gi.userCount}}万</p>
+                </el-col>
+              </el-row>
+              <el-row v-else>
+                <el-col :span="24">
+                  <img :src="topImg" alt="当日达成率icon">
+                  <p class="team_day_perc">{{gi.userTargetName}}</p>
+                  <p class="team_day_count">{{gi.userCount}}</p>
+                </el-col>
+              </el-row>
+            </div>
+            <!-- /team_day_target -->
           </div>
-          <!--/ team_avatar -->
-          <div class="team_base_info">
-            <h4>姓名：{{userName}}</h4>
-            <p>组别：{{teamName}}</p>
-          </div>
-          <!--/ team_base_info -->
-          <div class="team_day_target">
-            <el-row>
-              <el-col :span="12">
-                <img :src="topImg" alt="当日达成率icon">
-                <p class="team_day_perc">当日达成率</p>
-                <p class="team_day_count">{{tCount}}%</p>
-              </el-col>
-              <el-col :span="12">
-                <img :src="topImg" alt="当日达成率icon">
-                <p class="team_day_perc">当日达成值</p>
-                <p class="team_day_count">{{tValue}}万</p>
-              </el-col>
-            </el-row>
-          </div>
-          <!-- /team_day_target -->
-        </div>
-        <!--/ group_info_box -->
-      </swiper-slide>
-      <!--/ swiper-slide -->
-      <swiper-slide>
-        <div class="group_info_box">
-          <h3>实时冠军</h3>
-          <div class="team_avatar">
-            <span class="avatar_box">
-              <img :src="userAvatar1" alt="用户头像">
-            </span>
-          </div>
-          <!--/ team_avatar -->
-          <div class="team_base_info">
-            <h4>姓名：{{userName}}</h4>
-            <p>组别：{{teamName}}</p>
-          </div>
-          <!--/ team_base_info -->
-          <div class="team_day_target">
-            <el-row>
-              <el-col :span="12">
-                <img :src="topImg" alt="当日达成率icon">
-                <p class="team_day_perc">当日达成率</p>
-                <p class="team_day_count">{{tCount}}%</p>
-              </el-col>
-              <el-col :span="12">
-                <img :src="topImg" alt="当日达成率icon">
-                <p class="team_day_perc">当日达成值</p>
-                <p class="team_day_count">{{tValue}}万</p>
-              </el-col>
-            </el-row>
-          </div>
-          <!-- /team_day_target -->
-        </div>
-        <!--/ group_info_box -->
-      </swiper-slide>
-      <!--/ swiper-slide -->
-      <swiper-slide>
-        <div class="group_info_box">
-          <h3>实时冠军</h3>
-          <div class="team_avatar">
-            <span class="avatar_box">
-              <img :src="userAvatar2" alt="用户头像">
-            </span>
-          </div>
-          <!--/ team_avatar -->
-          <div class="team_base_info">
-            <h4>姓名：{{userName}}</h4>
-            <p>组别：{{teamName}}</p>
-          </div>
-          <!--/ team_base_info -->
-          <div class="team_day_target">
-            <el-row>
-              <el-col :span="12">
-                <img :src="topImg" alt="当日达成率icon">
-                <p class="team_day_perc">当日达成率</p>
-                <p class="team_day_count">{{tCount}}%</p>
-              </el-col>
-              <el-col :span="12">
-                <img :src="topImg" alt="当日达成率icon">
-                <p class="team_day_perc">当日达成值</p>
-                <p class="team_day_count">{{tValue}}万</p>
-              </el-col>
-            </el-row>
-          </div>
-          <!-- /team_day_target -->
-        </div>
-        <!--/ group_info_box -->
-      </swiper-slide>
-      <!--/ swiper-slide -->
+          <!--/ group_info_box -->
+        </swiper-slide>
+        <!--/ swiper-slide -->
+      </template>
     </swiper>
+    <!-- swiper -->
   </div>
 </template>
 
@@ -110,6 +54,14 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 export default {
   name: 'groupswiper',
+  props: {
+    giData: {
+      type: Array,
+      default: () => {
+        return null;
+      }
+    }
+  },
   components: {
     swiper,
     swiperSlide
@@ -121,10 +73,6 @@ export default {
       userAvatar2: require('../../assets/avatar2.png'),
 
       topImg: require('../../assets/top.png'),
-      tCount: 123, // 当日达成率
-      tValue: 170, // 当日达成值
-      userName: '李世民',
-      teamName: '第一组',
       swiperOption: {
         loop: true,
         effect: 'slide',
@@ -132,7 +80,7 @@ export default {
         autoplay: {
           disableOnInteraction: false
         },
-        delay: 2000
+        delay: 5000
       }
     };
   },

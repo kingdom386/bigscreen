@@ -14,111 +14,49 @@
     <!-- /rank_month_caption -->
     <div class="rank_box">
       <swiper :options="swiperOption" ref="swiperOption">
-        <swiper-slide>
-          <div class="rank_month_list">
-            <div class="rank_month_list_row">
-              <div class="rank_month_list_cell">
-                <div class="user_avatar">
-                  <img src="../../assets/avatar1.png" alt="用户头像">
+        <template v-for="(md, index) in monthData">
+          <swiper-slide :key="index">
+            <div class="rank_month_list">
+              <div class="rank_month_list_row">
+                <div class="rank_month_list_cell">
+                  <div class="user_avatar">
+                    <img src="../../assets/avatar5.png" alt="用户头像">
+                  </div>
                 </div>
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                <img src="../../assets/Champion.png" alt="用户头像">
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                小王
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                100万
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                1000万
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                10%
-              </div>
-              <!-- /rank_month_list_cell -->
-            </div>
-            <!-- /rank_month_list_row -->
-          </div>
-          <!-- /rank_month_list -->
-        </swiper-slide>
-        <!-- /swiper-slide -->
-        <swiper-slide>
-          <div class="rank_month_list">
-            <div class="rank_month_list_row">
-              <div class="rank_month_list_cell">
-                <div class="user_avatar">
-                  <img src="../../assets/avatar1.png" alt="用户头像">
+                <!-- /rank_month_list_cell -->
+                <div class="rank_month_list_cell" v-if="index === 1">
+                  <img src="../../assets/Champion.png" alt="头衔图标">
                 </div>
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                <img src="../../assets/Runnerup.png" alt="用户头像">
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                小王
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                100万
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                1000万
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                10%
-              </div>
-              <!-- /rank_month_list_cell -->
-            </div>
-            <!-- /rank_month_list_row -->
-          </div>
-          <!-- /rank_month_list -->
-        </swiper-slide>
-        <!-- /swiper-slide -->
-        <swiper-slide>
-          <div class="rank_month_list">
-            <div class="rank_month_list_row">
-              <div class="rank_month_list_cell">
-                <div class="user_avatar">
-                  <img src="../../assets/avatar1.png" alt="用户头像">
+                <div class="rank_month_list_cell" v-else-if="index === 2">
+                  <img src="../../assets/Runnerup.png" alt="头衔图标">
                 </div>
+                <div class="rank_month_list_cell" v-else >
+                  <img src="../../assets/seasonArmy.png" alt="头衔图标">
+                </div>
+                <!-- /rank_month_list_cell -->
+                <div class="rank_month_list_cell">
+                  {{md.USERNAME}}
+                </div>
+                <!-- /rank_month_list_cell -->
+                <div class="rank_month_list_cell">
+                  {{md.DCTZE}}万
+                </div>
+                <!-- /rank_month_list_cell -->
+                <div class="rank_month_list_cell">
+                  {{md.MBTZE}}万
+                </div>
+                <!-- /rank_month_list_cell -->
+                <div class="rank_month_list_cell">
+                  {{md.RATE}}%
+                </div>
+                <!-- /rank_month_list_cell -->
               </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                <img src="../../assets/seasonArmy.png" alt="用户头像">
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                小王
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                100万
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                1000万
-              </div>
-              <!-- /rank_month_list_cell -->
-              <div class="rank_month_list_cell">
-                10%
-              </div>
-              <!-- /rank_month_list_cell -->
+              <!-- /rank_month_list_row -->
             </div>
-            <!-- /rank_month_list_row -->
-          </div>
-          <!-- /rank_month_list -->
-        </swiper-slide>
-        <!-- /swiper-slide -->
+            <!-- /rank_month_list -->
+          </swiper-slide>
+          <!-- /swiper-slide -->
+        </template>
       </swiper>
       <!-- /swiper -->
     </div>
@@ -140,6 +78,12 @@ export default {
     rankName: {
       type: String,
       default: ''
+    },
+    monthData: {
+      type: Array,
+      default: () => {
+        return [];
+      }
     }
   },
   data () {
