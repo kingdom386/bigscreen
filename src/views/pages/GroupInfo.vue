@@ -7,7 +7,7 @@
             <h3>{{gi.gName}}</h3>
             <div class="team_avatar">
               <span class="avatar_box">
-                <img :src="userAvatar" alt="用户头像">
+                <img v-bind:src="gi.user_avatar === null ? userAvatar : gi.user_avatar" alt="用户头像">
               </span>
             </div>
             <!--/ team_avatar -->
@@ -69,9 +69,6 @@ export default {
   data () {
     return {
       userAvatar: require('../../assets/avatar5.png'),
-      userAvatar1: require('../../assets/avatar1.png'),
-      userAvatar2: require('../../assets/avatar2.png'),
-
       topImg: require('../../assets/top.png'),
       swiperOption: {
         loop: true,

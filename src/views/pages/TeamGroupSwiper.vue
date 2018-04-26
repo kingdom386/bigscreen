@@ -6,7 +6,9 @@
           <div class="team_table_list_row">
             <div class="team_list_item">
               <div class="team_user_avatar">
-                <img :src="userAvatar" alt="用户头像">
+                <span class="avatar_box">
+                  <img :src="tgs.HEADPHOTOURL === null ? userAvatar : tgs.HEADPHOTOURL" alt="用户头像">
+                </span>
               </div>
             </div>
             <!-- /team_list_item -->
@@ -114,17 +116,23 @@ export default {
           width: 52px;
           height: 52px;
           background: #282d35;
-          border-radius: 100%;
-          -webkit-border-radius: 100%;
-          -moz-border-radius: 100%;
+          border-radius: 52px;
+          -webkit-border-radius: 52px;
+          -moz-border-radius: 52px;
           overflow: hidden;
-          img{
+          .avatar_box{
             display: block;
-            max-width: 100%;
-            height: auto;
-            border-radius: 100%;
-            -webkit-border-radius: 100%;
-            -moz-border-radius: 100%;
+            width: 44px;
+            height: 44px;
+            overflow: hidden;
+            border-radius: 44px;
+            -webkit-border-radius: 44px;
+            -moz-border-radius: 44px;
+            img{
+              display: block;
+              max-width: 100%;
+              height: auto;
+            }
           }
         }
       }

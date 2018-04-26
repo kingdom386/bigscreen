@@ -20,7 +20,9 @@
               <div class="rank_month_list_row">
                 <div class="rank_month_list_cell">
                   <div class="user_avatar">
-                    <img src="../../assets/avatar5.png" alt="用户头像">
+                    <span class="img_box">
+                      <img :src="md.HEADPHOTOURL === null ? userAvatar : md.HEADPHOTOURL" alt="用户头像">
+                    </span>
                   </div>
                 </div>
                 <!-- /rank_month_list_cell -->
@@ -88,6 +90,7 @@ export default {
   },
   data () {
     return {
+      userAvatar: require('../../assets/avatar5.png'),
       rank_caption: ['排名头像', '排名', '姓名', '达成额', '目标额', '达成率'],
       swiperOption: {
         direction: 'vertical',
@@ -134,6 +137,7 @@ export default {
           font-size: 18px;
           color: #f0f0f0;
           line-height: 1;
+          overflow: hidden;
           &:first-child{
             width: 95px;
           }
@@ -144,10 +148,10 @@ export default {
             width: 70px;
           }
           &:nth-child(4){
-            width: 76px;
+            width: 85px;
           }
           &:nth-child(5){
-            width: 78px;
+            width: 80px;
           }
           &:nth-child(6){
             width: 102px;
@@ -179,16 +183,24 @@ export default {
               padding: 4px;
               width: 74px;
               height: 74px;
-              border-radius: 100%;
-              -webkit-border-radius:100%;
-              -moz-border-radius: 100%;
+              border-radius: 74px;
+              -webkit-border-radius: 74px;
+              -moz-border-radius: 74px;
               background: #282d35;
-              overflow: hidden;
-              &>img{
-              border-radius: 100%;
-              -webkit-border-radius:100%;
-              -moz-border-radius: 100%;
+              .img_box{
+                display: block;
+                width: 66px;
+                height: 66px;
+                overflow: hidden;
+                border-radius: 66px;
+                -webkit-border-radius: 66px;
+                -moz-border-radius: 66px;
               }
+              // &>img{
+              // border-radius: 74px;
+              // -webkit-border-radius: 74px;
+              // -moz-border-radius: 74px;
+              // }
             }
             img{
               display: block;
@@ -205,10 +217,10 @@ export default {
               width: 70px;
             }
             &:nth-child(4){
-              width: 76px;
+              width: 85px;
             }
             &:nth-child(5){
-              width: 78px;
+              width: 80px;
             }
             &:nth-child(6){
               width: 102px;
