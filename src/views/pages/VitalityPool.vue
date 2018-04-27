@@ -44,25 +44,25 @@ export default {
 <style lang="less" scoped>
   .public_style{
     position: absolute;
-    top: 200px;
-    width: 408px;
-    height: 275px;
+    top: 2rem;
+    width: 4.08rem;
+    height: 2.75rem;
     background: url('./wave.png') 0 0  no-repeat;
   }
   .pool_box{
-    margin: 0 0 30px 10px;
+    margin: 0 0 0.3rem 0.1rem;
     .pool_canvas{
-      padding: 10px;
-      width: 220px;
-      height: 220px;
+      padding: 0.1rem;
+      width: 2.2rem;
+      height: 2.2rem;
       border-radius: 100%;
       -webkit-border-radius: 100%;
       -moz-border-radius: 100%;
       background: #282c35;
       .pool_animation{
         position: relative;
-        width: 200px;
-        height: 200px;
+        width: 2rem;
+        height: 2rem;
         border-radius: 100%;
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
@@ -73,8 +73,8 @@ export default {
         .wave_up{
           .public_style;
           z-index: 4;
-          left: 30px;
-          opacity: .8;
+          left: 0.3rem;
+          opacity: 0.8;
           animation: wave 2s linear infinite;
           -webkit-animation: wave 2s linear infinite;
           -moz-animation: wave 2s linear infinite;
@@ -84,8 +84,8 @@ export default {
         .wave_down{
           .public_style;
           z-index: 2;
-          left: -80px;
-          opacity: .6;
+          left: -0.8rem;
+          opacity: 0.6;
           animation: wave 2.6s linear infinite;
           -webkit-animation: wave 2.6s linear infinite;
           -moz-animation: wave 2.6s linear infinite;
@@ -98,7 +98,7 @@ export default {
           left: 50%;
           top: 50%;
           z-index: 7;
-          font-size: 34px;
+          font-size: 0.34rem;
           color: #fff;
           transform: translate3d(-50%, -50%, 0);
           -webkit-transform: translate3d(-50%, -50%, 0);
@@ -107,9 +107,9 @@ export default {
       }
     }
     h3{
-      width: 220px;
-      font-size: 20px;
-      line-height: 58px;
+      width: 2.2rem;
+      font-size: 0.2rem;
+      line-height: 0.58rem;
       color: #f0f0f0;
       text-align: center;
     }
@@ -120,16 +120,16 @@ export default {
       left: 0;
     }
     25%{
-      left: -55px;
+      left: -0.55rem;
     }
     50%{
-      left: -100px;
+      left: -1rem;
     }
     75%{
-      left: -150px;
+      left: -1.5rem;
     }
     100%{
-      left: -200px;
+      left: -2rem;
     }
   }
 
@@ -138,16 +138,16 @@ export default {
       left: 0;
     }
     25%{
-      left: 100px;
+      left: -0.55rem;
     }
     50%{
-      left: 200px;
+      left: -1rem;
     }
     75%{
-      left: 300px;
+      left: -1.5rem;
     }
     100%{
-      left: 400px;
+      left: -2rem;
     }
   }
     @-moz-keyframes wave{
@@ -155,16 +155,16 @@ export default {
       left: 0;
     }
     25%{
-      left: 100px;
+      left: -0.55rem;
     }
     50%{
-      left: 200px;
+      left: -1rem;
     }
     75%{
-      left: 300px;
+      left: -1.5rem;
     }
     100%{
-      left: 400px;
+      left: -2rem;
     }
   }
 
@@ -173,16 +173,16 @@ export default {
       left: 0;
     }
     25%{
-      left: 100px;
+      left: -0.55rem;
     }
     50%{
-      left: 200px;
+      left: -1rem;
     }
     75%{
-      left: 300px;
+      left: -1.5rem;
     }
     100%{
-      left: 400px;
+      left: -2rem;
     }
   }
 </style>

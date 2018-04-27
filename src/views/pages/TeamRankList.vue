@@ -78,55 +78,55 @@ export default {
 
 <style lang="less" scoped>
   .team_rank{
-    padding: 0 20px 0;
+    padding: 0 0.2rem 0;
     width: auto;
-    height: 545px;
+    height: 5.45rem;
     background: #191f28;
     overflow: hidden;
     h3{
-      margin: 0 0 10px;
+      margin: 0 0 0.1rem;
       width: auto;
-      height: 64px;
-      font-size: 22px;
+      height: 0.64rem;
+      font-size: 0.22rem;
       color: #75787e;
-      line-height: 64px;
+      line-height: 0.64rem;
     }
     .team_table_caption{
-      margin-left: 4px;
+      margin-left: 0.04rem;
       display: table;
       width: 100%;
-      height: 20px;
+      height: 0.2rem;
       .team_table_row{
         display: table-row;
         .team_table_cell{
           display: table-cell;
-          font-size: 18px;
+          font-size: 0.18rem;
           color: #f0f0f0;
           &:first-child,&:nth-child(3),&:nth-child(4),&:nth-child(6){
-            width: 70px;
+            width: 0.7rem;
           }
           &:nth-child(2),&:nth-child(5),&:nth-child(7){
-            width: 68px;
+            width: 0.68rem;
           }
           &:nth-child(8){
-            width: 72px;
+            width: 0.72rem;
           }
         }
       }
     }
     .team_table_pane{
      width: auto;
-     height: 150px;
+     height: 1.5rem;
      overflow: hidden;
      border-bottom: 1px solid #0e131a;
-     box-shadow: 0 1px 0px rgba(45,52,61,1);
-     -webkit-box-shadow: 0 1px 0px rgba(45,52,61,1);
-     -moz-box-shadow: 0 1px 0px rgba(45,52,61,1);
+     box-shadow: 0 1px 0 rgba(45,52,61,1);
+     -webkit-box-shadow: 0 1px 0 rgba(45,52,61,1);
+     -moz-box-shadow: 0 1px 0 rgba(45,52,61,1);
      &:last-child{
       border-bottom: none;
-      box-shadow: 0 1px 0px rgba(45,52,61,0);
-      -webkit-box-shadow: 0 1px 0px rgba(45,52,61,0);
-      -moz-box-shadow: 0 1px 0px rgba(45,52,61,0);
+      box-shadow: 0 1px 0 rgba(45,52,61,0);
+      -webkit-box-shadow: 0 1px 0 rgba(45,52,61,0);
+      -moz-box-shadow: 0 1px 0 rgba(45,52,61,0);
      }
     }
   }

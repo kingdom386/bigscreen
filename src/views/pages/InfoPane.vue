@@ -96,76 +96,76 @@ export default {
 
 <style lang="less" scoped>
   .info_container{
-    height: 545px;
+    height: 5.45rem;
     .dark_gray{
       background: #191f28;
     }
     .info_box{
-      padding:0 20px;
-      height: 258px;
-      margin-bottom: 29px;
+      padding:0 0.2rem;
+      height: 2.58rem;
+      margin-bottom: 0.29rem;
       &:last-child{
         margin-bottom: 0;
       }
     }
     .info_caption{
-      margin-bottom: 12px;
+      margin-bottom: 0.12rem;
       overflow: hidden;
       h2{
         margin: 0;
         float:left;
-        font-size: 22px;
-        line-height: 60px;
+        font-size: 0.22rem;
+        line-height: 0.6rem;
         color: #75787e;
       }
       .info_subTitle{
         display: block;
         float: right;
         color: #f0f0f0;
-        font-size: 18px;
-        line-height: 60px;
+        font-size: 0.18rem;
+        line-height: 0.6rem;
       }
     }
     .info_echarts{
       .info_group{
-        padding: 15px 0 0 100px;
-        margin-bottom: 26px;
+        padding: 0.15rem 0 0 1rem;
+        margin-bottom: 0.26rem;
         vertical-align: middle;
         position: relative;
-        height: 40px;
+        height: 0.4rem;
         .info_progress{
           position: relative;
           width: 100%;
-          height: 10px;
+          height: 0.1rem;
           background: linear-gradient(to bottom ,#2d343c,#303741);
           background: -webkit-linear-gradient(to bottom ,#2d343c,#303741);
           background: -moz-linear-gradient(to bottom ,#2d343c,#303741);
-          box-shadow:0 0 5px rgba(0, 0, 0, .2);
-          -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
-          -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
-          border-radius: 10px;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
+          box-shadow:0 0 0.05rem rgba(0, 0, 0, .2);
+          -webkit-box-shadow: 0 0 0.05rem rgba(0, 0, 0, .2);
+          -moz-box-shadow: 0 0 0.05rem rgba(0, 0, 0, .2);
+          border-radius: 0.1rem;
+          -webkit-border-radius: 0.1rem;
+          -moz-border-radius: 0.1rem;
           .info_progress_up{
             position: absolute;
             z-index: 2;
             left: 0;
             top: 0;
             width: 0%;
-            height: 10px;
+            height: 0.1rem;
             color: #fff;
-            font-size: 12px;
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
+            font-size: 0.12rem;
+            border-radius: 0.1rem;
+            -webkit-border-radius: 0.1rem;
+            -moz-border-radius: 0.1rem;
             .percentage{
               float: right;
-              margin-right: 20px;
+              margin-right: 0.2rem;
               display: block;
-              width: 24px;
-              height: 10px;
-              font-size: 10px;
-              line-height: 10px;
+              width: 0.24rem;
+              height: 0.1rem;
+              font-size: 0.1rem;
+              line-height: 0.1rem;
               color: #f0f0f0;
             }
             &.p_warning{
@@ -187,15 +187,15 @@ export default {
               content: '';
               position: absolute;
               display: block;
-              width: 10px;
-              height: 10px;
-              right: -4px;
-              top: -4px;
+              width: 0.1rem;
+              height: 0.1rem;
+              right: -0.04rem;
+              top: -0.04rem;
               border-radius: 100%;
               -webkit-border-radius: 100%;
               -moz-border-radius: 100%;
               background: #fff;
-              border: 4px solid #2b2f3a;
+              border: 0.04rem solid #2b2f3a;
             }
           }
         }
@@ -226,14 +226,14 @@ export default {
           top: 0;
           z-index: 1;
           display: block;
-          width: 70px;
-          height: 40px;
-          font-size: 18px;
+          width: 0.7rem;
+          height: 0.4rem;
+          font-size: 0.18rem;
           text-align: center;
-          line-height: 40px;
+          line-height: 0.4rem;
           color: #f0f0f0;
-          border-top-right-radius: 20px;
-          border-bottom-right-radius: 20px;
+          border-top-right-radius: 0.2rem;
+          border-bottom-right-radius: 0.2rem;
         }
       }
     }

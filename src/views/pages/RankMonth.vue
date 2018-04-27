@@ -118,11 +118,11 @@ export default {
 <style lang="less" scoped>
   .rank_month_pane{
     width: auto;
-    height: 388px;
+    height: 3.88rem;
     h2{
-      margin: 0 0 32px;
-      font-size: 22px;
-      line-height: 23px;
+      margin: 0 0 0.32rem;
+      font-size: 0.22rem;
+      line-height: 0.23rem;
       color: #75787e;
     }
     .rank_month_caption{
@@ -134,37 +134,37 @@ export default {
         .rank_month_cell{
           display: table-cell;
           vertical-align: middle;
-          font-size: 18px;
+          font-size: 0.18rem;
           color: #f0f0f0;
           line-height: 1;
           overflow: hidden;
           &:first-child{
-            width: 95px;
+            width: 0.95rem;
           }
           &:nth-child(2){
-            width: 82px;
+            width: 0.82rem;
           }
           &:nth-child(3){
-            width: 70px;
+            width: 0.7rem;
           }
           &:nth-child(4){
-            width: 85px;
+            width: 0.85rem;
           }
           &:nth-child(5){
-            width: 80px;
+            width: 0.8rem;
           }
           &:nth-child(6){
-            width: 102px;
+            width: 1.02rem;
           }
         }
       }
     }
     .rank_box{
       width: 100%;
-      height: 289px;
+      height: 2.89rem;
       overflow: hidden;
       .rank_month_list{
-        padding: 10px 0 0;
+        padding: 0.1rem 0 0;
         display: table;
         width: 100%;
         height: auto;
@@ -174,33 +174,28 @@ export default {
           .rank_month_list_cell {
             display: table-cell;
             width:  auto;
-            height: 92px;
-            font-size: 16px;
+            height: 0.92rem;
+            font-size: 0.16rem;
             color: #75787e;
-            line-height: 92px;
+            line-height: 0.92rem;
             vertical-align: middle;
             .user_avatar{
-              padding: 4px;
-              width: 74px;
-              height: 74px;
-              border-radius: 74px;
-              -webkit-border-radius: 74px;
-              -moz-border-radius: 74px;
+              padding: 0.04rem;
+              width: 0.74rem;
+              height: 0.74rem;
+              border-radius: 0.74rem;
+              -webkit-border-radius: 0.74rem;
+              -moz-border-radius: 0.74rem;
               background: #282d35;
               .img_box{
                 display: block;
-                width: 66px;
-                height: 66px;
+                width: 0.66rem;
+                height: 0.66rem;
                 overflow: hidden;
-                border-radius: 66px;
-                -webkit-border-radius: 66px;
-                -moz-border-radius: 66px;
+                border-radius: 0.66rem;
+                -webkit-border-radius: 0.66rem;
+                -moz-border-radius: 0.66rem;
               }
-              // &>img{
-              // border-radius: 74px;
-              // -webkit-border-radius: 74px;
-              // -moz-border-radius: 74px;
-              // }
             }
             img{
               display: block;
@@ -208,22 +203,22 @@ export default {
               height: auto;
             }
             &:first-child{
-              width: 95px;
+              width: 0.95rem;
             }
             &:nth-child(2){
-              width: 82px;
+              width: 0.82rem;
             }
             &:nth-child(3){
-              width: 70px;
+              width: 0.7rem;
             }
             &:nth-child(4){
-              width: 85px;
+              width: 0.85rem;
             }
             &:nth-child(5){
-              width: 80px;
+              width: 0.8rem;
             }
             &:nth-child(6){
-              width: 102px;
+              width: 1.02rem;
             }
           }
         }

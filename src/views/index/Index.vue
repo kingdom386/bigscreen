@@ -158,11 +158,11 @@ export default {
 <style lang="less" scoped>
   .b_main{
     .rank_month{
-      padding: 20px;
-      margin-top: 30px;
+      padding: 0.2rem;
+      margin-top: 0.3rem;
       background: #191f28;
       .rank_month_box{
-        padding-left:27px;
+        padding-left: 0.27rem;
         border-right:  1px solid #0e131a;
         box-shadow: 1px 0 0 rgba(45,52,61,1);
         -webkit-box-shadow: 1px 0 0 rgba(45,52,61,1);
@@ -179,18 +179,18 @@ export default {
       }
     }
     .el-aside{
-      margin: 20px 0;
-      padding: 0 0 0 20px;
-      width: 282px;
-      margin-right: 20px;
+      margin: 0.2rem 0;
+      padding: 0 0 0 0.2rem;
+      width: 2.82rem;
+      margin-right: 0.2rem;
       overflow: hidden;
       background: #191f28;
       h1{
-        margin: 0 0 10px 0;
+        margin: 0 0 0.1rem 0;
         width:100%;
-        height: 60px;
-        font-size: 22px;
-        line-height: 60px;
+        height: 0.6rem;
+        font-size: 0.22rem;
+        line-height: 0.6rem;
         color: #75787e;
       }
     }

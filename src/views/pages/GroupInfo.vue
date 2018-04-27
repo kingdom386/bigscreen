@@ -92,60 +92,60 @@ export default {
 <style lang="less" scoped>
   .group_info{
     width:auto;
-    height: 545px;
+    height: 5.45rem;
     background: #191f28;
     overflow: hidden;
     .group_info_box{
       h3{
-        padding-left: 20px;
-        margin: 0 0 16px;
+        padding-left: 0.2rem;
+        margin: 0 0 0.16rem;
         width: auto;
-        height: 64px;
-        font-size: 22px;
-        line-height: 64px;
+        height: 0.64rem;
+        font-size: 0.22rem;
+        line-height: 0.64rem;
         color: #75787e;
       }
       .team_avatar{
-        padding: 15px;
+        padding: 0.15rem;
         margin: 0 auto;
         display: block;
-        width: 190px;
-        height: 190px;
+        width: 1.9rem;
+        height: 1.9rem;
         background: #282d35;
-        border-radius: 190px;
-        -webkit-border-radius: 190px;
-        -moz-border-radius: 190px;
+        border-radius: 1.9rem;
+        -webkit-border-radius: 1.9rem;
+        -moz-border-radius: 1.9rem;
         overflow: hidden;
         .avatar_box{
           display: block;
-          width: 160px;
-          height: 160px;
-          border-radius: 160px;
-          -webkit-border-radius: 160px;
-          -moz-border-radius: 160px;
+          width: 1.6rem;
+          height: 1.6rem;
+          border-radius: 1.6rem;
+          -webkit-border-radius: 1.6rem;
+          -moz-border-radius: 1.6rem;
           background: #f0f0f0;
           overflow: hidden;
           img{
             display: block;
             max-width: 100%;
-            height: atuo;
+            height: auto;
           }
         }
       }
       .team_base_info{
-        padding: 20px 0 66px;
+        padding: 0.2rem 0 0.66rem;
         &>h4{
-          margin: 0 0 10px;
-          margin-bottom: 10px;
+          margin: 0 0 0.1rem;
+          margin-bottom: 0.1rem;
           text-align: center;
-          font-size: 24px;
+          font-size: 0.24rem;
           line-height: 1;
           color: #f0f0f0;
         }
         &>p{
           margin: 0;
-          font-size: 18px;
-          line-height: 1;
+          font-size: 0.18rem;
+          line-height: 0.18rem;
           color: #75787e;
           text-align: center;
         }
@@ -172,13 +172,13 @@ export default {
             -webkit-box-shadow: 0 -1px 1px rgba(0,0,0,0);
           }
           .team_day_perc{
-            margin: 14px 0 10px;
-            font-size: 16px;
+            margin: 0.14rem 0 0.1rem;
+            font-size: 0.16rem;
             line-height: 1;
             color: #75787e;
           }
           .team_day_count{
-            font-size: 22px;
+            font-size: 0.22rem;
             line-height: 1;
             color: #f0f0f0
           }

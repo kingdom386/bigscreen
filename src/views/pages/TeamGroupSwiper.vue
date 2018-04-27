@@ -1,7 +1,7 @@
 <template>
   <swiper :options="teamOptions" ref="teamOptions">
     <template v-for="(tgs, index) in tgsData">
-      <swiper-slide :key="index">
+      <swiper-slide :key="index" style="height: 1.5rem">
         <div class="team_table_list">
           <div class="team_table_list_row">
             <div class="team_list_item">
@@ -95,39 +95,39 @@ export default {
     width: 100%;
     .team_table_list_row{
       display: table-row;
-      height: 75px;
+      height: 0.75rem;
       .team_list_item{
         display: table-cell;
         vertical-align: middle;
-        font-size: 16px;
+        font-size: 0.16rem;
         line-height: 1;
         color: #75787e;
         &:first-child,&:nth-child(3),&:nth-child(4),&:nth-child(6){
-          width: 70px;
+          width: 0.7rem;
         }
         &:nth-child(2),&:nth-child(5),&:nth-child(7){
-          width: 68px;
+          width: 0.68rem;
         }
         &:nth-child(8){
-          width: 72px;
+          width: 0.72rem;
         }
         .team_user_avatar{
-          padding: 4px;
-          width: 52px;
-          height: 52px;
+          padding: 0.04rem;
+          width: 0.52rem;
+          height: 0.52rem;
           background: #282d35;
-          border-radius: 52px;
-          -webkit-border-radius: 52px;
-          -moz-border-radius: 52px;
+          border-radius: 0.52rem;
+          -webkit-border-radius: 0.52rem;
+          -moz-border-radius: 0.52rem;
           overflow: hidden;
           .avatar_box{
             display: block;
-            width: 44px;
-            height: 44px;
+            width: 0.44rem;
+            height: 0.44rem;
             overflow: hidden;
-            border-radius: 44px;
-            -webkit-border-radius: 44px;
-            -moz-border-radius: 44px;
+            border-radius: 0.44rem;
+            -webkit-border-radius: 0.44rem;
+            -moz-border-radius: 0.44rem;
             img{
               display: block;
               max-width: 100%;
